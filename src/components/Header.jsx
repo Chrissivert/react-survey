@@ -16,7 +16,7 @@ export default function Header() {
         alt="rubber duck"
         onMouseEnter={handleHover}
       />
-      <h1>Yet Another Survey !</h1>
+      <h1 className="rainbow-text">Yet Another Survey !</h1>
     </header>
   );
 }

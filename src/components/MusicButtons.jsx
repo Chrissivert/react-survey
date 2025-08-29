@@ -42,7 +42,7 @@ export default function MusicButtons({ onChange }) {
       className={`yes-button ${musicEnabled ? "active" : ""}`}
       onClick={() => handleClick(true)}
     >
-      Yes 🇬🇧
+      Yes
     </button>
     <button
         className={`no-button ${!musicEnabled ? "active" : ""}`}
