@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./rubberDuckForm.css"
 
-function RubberDuckForm() {
+function RubberDuckForm({onSubmit}) {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [duckColor, setDuckColor] = useState("");
@@ -19,14 +19,10 @@ function RubberDuckForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log({
-      username,
-      email,
-      duckColor,
-      activities,
-      review,
-    });
+    const formData = { username, email, duckColor, activities, review };
+    if (onSubmit) onSubmit(formData);
   };
+
 
   return (
     <form className="form" onSubmit={handleSubmit}>
@@ -34,15 +30,15 @@ function RubberDuckForm() {
 
       <div className="form__group radio">
         <h3>Please tell us your rubber duck colour</h3>
-        <label className={duckColor === "yellow" ? "selected" : ""}>
+        <label className={duckColor === "red" ? "selected" : ""}>
           <input
             type="radio"
             name="duckColor"
-            value="yellow"
-            checked={duckColor === "yellow"}
+            value="red"
+            checked={duckColor === "red"}
             onChange={(e) => setDuckColor(e.target.value)}
           />
-          Yellow
+          Red
         </label>
 
         <label className={duckColor === "blue" ? "selected" : ""}>
