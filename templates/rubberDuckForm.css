@@ -1,0 +1,3 @@
+.form__group.radio label.selected {
+  color: red;
+}
