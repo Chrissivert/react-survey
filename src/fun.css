@@ -5,3 +5,22 @@
 .rubber-duck:hover {
   transform: rotate(360deg); 
 }
+
+.yes-button {
+  font-size: 2rem;
+  padding: 15px 30px;
+  transition: transform 0.2s ease;
+}
+
+.yes-button:hover {
+  transform: scale(1.1); /* makes it pop when hovered */
+}
+
+.no-button {
+  font-size: 1rem;
+  padding: 5px 10px;
+}
+
+.no-button:hover {
+  transform: scale(0.6); /* makes it pop when hovered */
+}

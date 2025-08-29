@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./rubberDuckForm.css"
+import MusicButtons from "../src/components/MusicButtons";
 
 function RubberDuckForm({onSubmit}) {
   const [username, setUsername] = useState("");
@@ -18,6 +19,9 @@ function RubberDuckForm({onSubmit}) {
   };
 
   const handleSubmit = (e) => {
+    const audio = new Audio("/audio/explosion.mp3");
+    audio.load();
+    audio.play();
     e.preventDefault();
     const formData = { username, email, duckColor, activities, review };
     if (onSubmit) onSubmit(formData);
@@ -29,41 +33,48 @@ function RubberDuckForm({onSubmit}) {
       <h2>Tell us what you think about your rubber duck!</h2>
 
       <div className="form__group radio">
-        <h3>Please tell us your rubber duck colour</h3>
-        <label className={duckColor === "red" ? "selected" : ""}>
-          <input
-            type="radio"
-            name="duckColor"
-            value="red"
-            checked={duckColor === "red"}
-            onChange={(e) => setDuckColor(e.target.value)}
-          />
-          Red
-        </label>
+          <MusicButtons/>
+          <h3>Please tell us your rubber duck colour</h3>
 
-        <label className={duckColor === "blue" ? "selected" : ""}>
-          <input
-            type="radio"
-            name="duckColor"
-            value="blue"
-            checked={duckColor === "blue"}
-            onChange={(e) => setDuckColor(e.target.value)}
-          />
-          Blue
-        </label>
+          <label
+            style={{ color: duckColor === "red" ? "red" : "black" }}
+          >
+            <input
+              type="radio"
+              name="duckColor"
+              value="red"
+              checked={duckColor === "red"}
+              onChange={(e) => setDuckColor(e.target.value)}
+            />
+            Red
+          </label>
 
-        <label className={duckColor === "pink" ? "selected" : ""}>
-          <input
-            type="radio"
-            name="duckColor"
-            value="pink"
-            checked={duckColor === "pink"}
-            onChange={(e) => setDuckColor(e.target.value)}
-          />
-          Pink
-        </label>
+          <label
+            style={{ color: duckColor === "blue" ? "blue" : "black" }}
+          >
+            <input
+              type="radio"
+              name="duckColor"
+              value="blue"
+              checked={duckColor === "blue"}
+              onChange={(e) => setDuckColor(e.target.value)}
+            />
+            Blue
+          </label>
 
-      </div>
+          <label
+            style={{ color: duckColor === "pink" ? "pink" : "black" }}
+          >
+            <input
+              type="radio"
+              name="duckColor"
+              value="pink"
+              checked={duckColor === "pink"}
+              onChange={(e) => setDuckColor(e.target.value)}
+            />
+            Pink
+          </label>
+        </div>
 
       <div className="form__group">
         <h3>How do you like to spend time with your rubber duck?</h3>
